@@ -28,7 +28,7 @@ training_set.columns = columns
 
 # check missing values
 training_size = len(training_set.index)
-log_output('log', training_size , header='training size')
+log_output('log', training_size , head='training size')
 ## nulls = (training_size - training_set.count()) / training_size
 ## log_output("log", head="proportion of missing values", content=nulls)
 
@@ -43,9 +43,9 @@ cnt_ios = np.sum(mobile_idfa + mobile_openudid)
 webs = 1 - pd.isnull(training_set['cookie'])
 cnt_web = np.sum(webs)
 
-log_output('log', cnt_android, header='androids')
-log_output('log', cnt_ios, header='ios')
-log_output('log', cnt_web, header='web')
+log_output('log', cnt_android, head='androids')
+log_output('log', cnt_ios, head='ios')
+log_output('log', cnt_web, head='web')
 
 
 # categorize fake accesses based on source
