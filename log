@@ -1,0 +1,171 @@
+## proportion of missing values
+rank                 0.000000
+dt                   0.000000
+cookie               0.000000
+ip                   0.000000
+mobile_idfa          0.889648
+mobile_imei          0.775588
+mobile_android_id    0.758124
+mobile_openudid      0.841539
+mobile_mac           0.788807
+timestamps           0.000000
+camp_id              0.000000
+creativeid           0.000000
+mobile_os            0.803098
+mobile_type          0.774765
+mobile_app_key       0.800442
+mobile_app_name      0.806485
+placement_id         0.000000
+user_agent           0.043315
+media_id             0.000000
+os                   0.673690
+born_time            0.000000
+flag                 0.000000
+dtype: float64
+
+## missing values statistics
+
+rank                        0
+dt                          0
+cookie                      0
+ip                          0
+mobile_idfa          37774225
+mobile_imei          32931264
+mobile_android_id    32189785
+mobile_openudid      35731542
+mobile_mac           33492538
+timestamps                  0
+camp_id                     0
+creativeid                  0
+mobile_os            34099335
+mobile_type          32896316
+mobile_app_key       33986588
+mobile_app_name      34243171
+placement_id                0
+user_agent            1839149
+media_id                    0
+os                   28604737
+born_time                   0
+flag                        0
+dtype: int64
+
+## android
+
+10269976
+
+## ios
+
+11413755
+
+## web
+
+42459761
+
+## training_size
+
+42459761
+
+## mobile types
+
+__TERM__        680768
+iPhone7         624977
+iPhone8         380296
+iPad4           230566
+iPhone6         219954
+__TS__          211797
+iPhone          189764
+iPad2           120813
+iPad5            93914
+iPhone4          93733
+iPhone5          83559
+MI 4LTE          79569
+Redmi+Note+3     76565
+MI+4LTE          75620
+iPad             73077
+...
+1470914636598          1
+1293018070703          1
+1470961828624          1
+1470929283047          1
+1470651822465          1
+1470647934953          1
+1470788516957          1
+1470612265447          1
+1470637362414          1
+1470632505269          1
+X450P-b01bd20c2db0-    1
+1470921476046          1
+1470730235699          1
+1470633266852          1
+1470900697690          1
+Length: 63497, dtype: int64
+
+## user agents count
+
+Apache-HttpClient%2fUNAVAILABLE%20%28java%201.4%29              3433693
+Mozilla%2f5.0%20%28Windows%20NT%206.1%3b%20WOW64%29%20AppleWebKit%2f537.36%20%28KHTML%2c%20like%20Gecko%29%20Chrome%2f45.0.2454.101%20Safari%2f537.36    1504366
+Mozilla%2f5.0%20%28Windows%20NT%205.1%29%20AppleWebKit%2f537.36%20%28KHTML%2c%20like%20Gecko%29%20Chrome%2f45.0.2454.101%20Safari%2f537.36    1228778
+Mozilla%2f5.0%20%28Windows%20NT%206.1%29%20AppleWebKit%2f537.36%20%28KHTML%2c%20like%20Gecko%29%20Chrome%2f45.0.2454.101%20Safari%2f537.36     967476
+Mozilla%2f5.0%20%28Windows%20NT%2010.0%3b%20WOW64%29%20AppleWebKit%2f537.36%20%28KHTML%2c%20like%20Gecko%29%20Chrome%2f45.0.2454.101%20Safari%2f537.36     479699
+Mozilla%2f5.0%20%28iPhone%3b%20CPU%20iPhone%20OS%209_3_3%20like%20Mac%20OS%20X%29%20AppleWebKit%2f601.1.46%20%28KHTML%2c%20like%20Gecko%29%20Mobile%2f13G34     378866
+Mozilla%2f5.0%20%28Windows%20NT%206.1%3b%20WOW64%29%20AppleWebKit%2f536.11%20%28KHTML%2c%20like%20Gecko%29%20Chrome%2f20.0.1132.57%20Safari%2f536.11     369082
+Mozilla%2f5.0%20%28Windows%20NT%206.1%3b%20WOW64%3b%20Trident%2f7.0%3b%20rv%3a11.0%29%20like%20Gecko     273539
+Mozilla%2f4.0%20%28compatible%3b%20MSIE%208.0%3b%20Windows%20NT%205.1%3b%20Trident%2f4.0%29     258213
+Mozilla%2f4.0%20%28compatible%3b%20MSIE%206.0%3b%20Windows%20NT%205.1%3b%20SV1%29     219887
+Mozilla%2f5.0%20%28iPhone%3b%20CPU%20iPhone%20OS%209_3_2%20like%20Mac%20OS%20X%29%20AppleWebKit%2f601.1.46%20%28KHTML%2c%20like%20Gecko%29%20Mobile%2f13F69     218089
+Mozilla%2f5.0%20%28Windows%20NT%206.1%3b%20WOW64%29%20AppleWebKit%2f537.36%20%28KHTML%2c%20like%20Gecko%29%20Chrome%2f38.0.2125.122%20Safari%2f537.36%20SE%202.X%20MetaSr%201.0     217514
+Mozilla%2f4.0%20%28compatible%3b%20MSIE%208.0%3b%20Windows%20NT%206.1%3b%20WOW64%3b%20Trident%2f4.0%3b%20SLCC2%3b%20.NET%20CLR%202.0.50727%3b%20.NET%20CLR%203.5.30729%3b%20.NET%20CLR%203.0.30729%3b%20Media%20Center%20PC%206.0%29%2fQY-Player-Windows%2f2.0.107     202470
+Mozilla%2f4.0%20%28compatible%3b%20MSIE%207.0%3b%20Windows%20NT%205.1%3b%20Trident%2f4.0%29     186739
+Mozilla%2f5.0%20%28compatible%3b%20MSIE%209.0%3b%20Windows%20NT%206.1%3b%20WOW64%3b%20Trident%2f5.0%29     183722
+...
+Mozilla%2f5.0%20%28Linux%3b%20U%3b%20Android%203.1.1%3b%20zh-cn%3b%20lenovo%20A860e%20Build%2fJDQ39E%29%20AppleWebKit%2f534.30%20%28KHTML%2c%20like%20Gecko%29%20Version%2f4.0%20Mobile%20Safari%2f534.30    1
+Mozilla%2f5.0%20%28Linux%3b%20U%3b%20Android%204.4.4%3b%20zh-cn%3b%20MI%204LTE%20Build%2fKVU84P%29%20AppleWebKit%2f533.1%20%28KHTML%2c%20like%20Gecko%29%20Version%2f4.0%20Mobile%20Safari%2f533.1    1
+Mozilla%2f5.0%20%28iPhone%3b%20CPU%20iPhone%20OS%209_3_3%20like%20Mac%20OS%20X%29%20AppleWebKit%2f601.1.46%20%28KHTML%2c%20like%20Gecko%29%20Mobile%2f13G34%20QQ%2f6.5.0.443%20V1_IPH_SQ_6.5.0_1_APP_A%20Pixel%2f750%20Core%2fUIWebView%20NetType%2f2G%20Mem%2f195    1
+Dalvik%2f1.6.0%20%28Linux%3b%20U%3b%20Android%204.3%3b%20SCH-I679%20Build%2fJLS36C%29%20NewsArticle%2f5.3.6    1
+Mozilla%2f5.0%20%28Linux%3b%20U%3b%20Android%205.0.2%3b%20zh-cn%3b%20SM-A5000%20Build%2fLRX22G%29%20AppleWebKit%2f537.36%20%28KHTML%2c%20like%20Gecko%29Version%2f4.0%20Chrome%2f37.0.0.0%20MQQBrowser%2f6.2%20Mobile%20Safari%2f537.36    1
+Dalvik%2f1.6.0%20%28Linux%3b%20U%3b%20Android%204.4.3%3b%20ikR1S%20Build%2fKOT49H%29    1
+Mozilla%2f5.0%20%28iPhone%3b%20CPU%20iPhone%20OS%209_3_3%20like%20Mac%20OS%20X%29%20AppleWebKit%2f601.1.46%20%28KHTML%2c%20like%20Gecko%29%20Mobile%2f13G34%20autohomeapp%2f1.0%20%28auto_iphone%3b6.2.0%3bF9yP5pxM-yVIumpWzcXltPmZkhkK9lrVMOg3uycxsm0oFm3xc9XBIStMao6ziVXA1nd_MnVkgvSYJfObKBk4GssNrapdNy4v21NTfzR6aojac1uK7yrqy1DSn-ffoH0U%3b9.3.3%3biPhone%29%20auto_iphone%2f6.2.0%20nettype%2funknown    1
+Mozilla%2f4.0%20%28compatible%3b%20MSIE%207.0%3b%20Windows%20NT%205.1%3b%20Trident%2f4.0%3b%20%40I%2bJ%5duMH7C_aeYllDIcR5msXpt%2fIt47Dl0hO%2bk%3b%20.NET%20CLR%202.0.50727%29    1
+Mozilla%2f5.0%20%28Linux%3b%20U%3b%20Android%204.0.3%3b%20Full%20AOSP%20on%20Tcl%20Amber3%20Build%2fIML74K%3b%20zh-cn%29%20WebKit%2f525.1%2b%20%28KHTML%2clikeGecko%2c%20Safari%2f525.1%2b%29%233.0%23TCL%2fTCL-CN-MS801-E5590A-3DG%2fV8-MS80111-LF1V209%2fwebkit%2f1920%2a1080%28115384338%2c695fd906d0c250626c9cccf8dcc08080%3b435e44134ed4511f4bb9e4fccbc451358a6cf071%2c000%2c000%29    1
+Mozilla%2f5.0%20%28Linux%3b%20Android%204.4.4%3b%20SM-A7000%20Build%2fKTU84P%29%20AppleWebKit%2f536.5%20%28KHTML%2c%20like%20Gecko%29%20Chrome%2f48.0.2564.18%20Mobile%20Safari%2f536.5    1
+Mozilla%2f5.0%20%28iPhone%3b%20CPU%20iPhone%20OS%207_1_1%20like%20Mac%20OS%20X%29%20AppleWebKit%2f537.51.2%20%28KHTML%2c%20like%20Gecko%29%20Mobile%2f11D201%20baiduboxapp%2f0_0.2.0.6_enohpi_6311_046%2f1.1.7_2C2%25255enohPi%2f1099a%2fFEE20454A403D469628D8ACF4BC3F82AB7A1F3EC6OCOSIRQNOK%2f1    1
+Mozilla%2f5.0%20%28Linux%3b%20Android%204.1.1%3b%20vivo%20X1%20Build%2fJRO03C%29%20AppleWebKit%2f537.36%20%28KHTML%2c%20like%20Gecko%29%20Version%2f4.0%20Chrome%2f37.0.0.0%20Mobile%20MQQBrowser%2f6.2%20TBS%2f036555%20Safari%2f537.36%20MicroMessenger%2f6.3.18.800%20NetType%2fWIFI%20Language%2fzh_CN    1
+Mozilla%2f5.0%20%28Linux%3b%20Android%204.4.2%3b%20H60-L02%20Build%2fHDH60-L02%29%20AppleWebKit%2f537.36%20%28KHTML%2c%20like%20Gecko%29%20Version%2f4.0%20Chrome%2f37.0.0.0%20Mobile%20MQQBrowser%2f6.2%20TBS%2f036555%20Safari%2f537.36%20V1_AND_SQ_6.5.3_398_YYB_D%20QQ%2f6.5.3.2855%20NetType%2f4G%20WebP%2f0.3.0%20Pixel%2f1080    1
+Mozilla%2f5.0%20%28Linux%3b%20U%3b%20Android%205.1%3b%20zh-CN%3b%20vivo%20X6Plus%20D%20Build%2fLMY47I%29%20AppleWebKit%2f534.30%20%28KHTML%2c%20like%20Gecko%29%20Version%2f4.0%20UCBrowser%2f10.4.0.558%20U3%2f0.8.0%20Mobile%20Safari%2f534.30    1
+Mozilla%2f5.0%20%28Linux%3b%20Android%205.1%3b%20S960%20Build%2fLMY47D%29%20AppleWebKit%2f537.36%20%28KHTML%2c%20like%20Gecko%29%20Version%2f4.0%20Chrome%2f39.0.0.0%20Safari%2f537.36%20%28Mobile%3b%20afma-sdk-a-v7571000.4323000.1%29    1
+Length: 514961, dtype: int64
+
+## cookies
+
+646d9cd31ae2a674d1ed6d68acc6e019    29946
+8ce10846ee66427f8527780107aa200f    26688
+07de748dce9b1368c5b5130955ce7409    23654
+32eefef058200011e763d5e4fc29a8ec    15941
+869b7e061094fad43425ebe6cbd70dde     9802
+a153835d4e80dd2669683f674ca708be     9572
+4cba9c30eefdecf92543e19bd1caa052     8934
+8d3a4618fb892ac933e96cfe963aa337     8679
+9016201fad855101dd6c496dd1ccb9bc     8406
+c9cea0a377a252f5fcf57f5028c852b9     8274
+d27ca52e9a76c2df1d4de6f87bfb594a     8058
+062bda023791ebb237d4b74594eef1af     8000
+68a08e3a107c79ed4d96414eb7e7fd03     7804
+8920d2e178764afece5a7b0537772a81     7666
+cf8d9f33570ea11c9cecc64194e81da6     7361
+...
+a4313d78603986bf73e45a3a855df872    1
+bcad2c336476b2d5fc89148ff6c6ecfc    1
+2b08e9cd55e3411ac4129fdda654b49e    1
+aa21680f0b2ee371cf09ab8cb0d7ce5e    1
+0e223ea43afc8093711fd105fb213ba3    1
+b826909809a26dd54f8d688581cae770    1
+ba8c090e6a19f8565306ef4a91736234    1
+26cf92eb7fd8445c8bbca8942a93a3c6    1
+0376922073751f2434e42c4326500b78    1
+eda5982291d20c0d1724afb92688a6a6    1
+46e8970d53089464ec73b4579c346ace    1
+3ea124b368913e815ac690ba91076bdf    1
+19521d094c1801be748e01ed3224a3d0    1
+b337bcf2bf54448f7db076ff43de3e8a    1
+0365cbda635ca7d8ead1f83738436d63    1
+Length: 14173455, dtype: int64
