@@ -26,13 +26,16 @@ training_set.columns = columns
 # proportion of fake access in training set: 0.49
 ## percentage_fake = fake_access / np.float(line)
 
+
 # check missing values
 training_size = len(training_set.index)
 log_output('log', training_size , head='training size')
 nulls_ratio = (training_size - training_set.count()) / training_size
 ## log_output("log", head="proportion of missing values", content=nulls_ratio)
 
+
 # proportion of different sources in all views
+# it turns out every access has a cookie value
 androids = 1 - pd.isnull(training_set['mobile_android_id'])
 cnt_android = np.sum(androids)
 
@@ -40,55 +43,59 @@ mobile_idfa = 1 - pd.isnull(training_set['mobile_idfa'])
 mobile_openudid = 1 - pd.isnull(training_set['mobile_openudid'])
 cnt_ios = np.sum(mobile_idfa + mobile_openudid)
 
-# it turns out every access has a cookie value
+## log_output('log', cnt_android, head='androids')
+## log_output('log', cnt_ios, head='ios')
 
-log_output('log', cnt_android, head='androids')
-log_output('log', cnt_ios, head='ios')
-
-# count mobile_type
+# count mobile_type, user_agents, cookies
 mobile_types = training_set.mobile_type.value_counts()
-## log_output('log', content=mobile_types, head='mobile types')
-
-# count user agents
 user_agents = training_set.user_agents.value_counts()
-## log_output('log', content=user_agent, head='user agents')
 
-# count cookies
 cookies = training_set.cookie.value_counts()
+## log_output('log', content=mobile_types, head='mobile types')
+## log_output('log', content=user_agent, head='user agents')
 ## log_output('log', content=cookies, head='cookies')
 
-# categorize fake accesses based on source
 
-# extract all flaged access
+# extract all flaged access and watch at the  distribution
 flaged_access = training_set[training_set['flag'] == 1]
 
-# count flaged cookies
-flaged_cookies = flaged_access.cookie.value_counts()
-## log_output('flaglog', content=cookies, head='cookies')
+f_ip = flaged_access.ip.value_counts()
 
-flaged_cookies = flaged_access.cookie.value_counts()
-## log_output('flaglog', content=cookies, head='cookies')
+f_cookies = flaged_access.cookie.value_counts()
+
+f_user_agents= flaged_access.user_agent.value_counts()
 
 f_mobile_types = flaged_access.mobile_type.value_counts()
-## log_output('flaglog', content=f_mobile_types, head='f_mobile_types')
 
 f_mobile_os = flaged_access.mobile_os.value_counts()
-## log_output('flaglog', content=f_mobile_os, head='f_mobile_os')
-
-f_ip = flaged_access.ip.value_counts()
-## log_output('flaglog', content=f_ip, head='f_ip')
 
 f_camp_id = flaged_access.camp_id.value_counts()
-## log_output('flaglog', content=f_camp_id, head='f_camp_id')
 
 f_creativeid = flaged_access.creativeid.value_counts()
-## log_output('flaglog', content=f_creativeid, head='f_creativeid')
 
 f_placement_id = flaged_access.placement_id.value_counts()
-## log_output('flaglog', content=f_placement_id, head='f_placement_id')
 
 f_media_id = flaged_access.media_id.value_counts()
+
+## log_output('flaglog', content=f_ip, head='f_ip')
+## log_output('flaglog', content=f_cookies, head='cookies')
+## log_output('flaglog', content=f_user_agents, head='flaged_user_agents')
+## log_output('flaglog', content=f_mobile_types, head='f_mobile_types')
+## log_output('flaglog', content=f_mobile_os, head='f_mobile_os')
+## log_output('flaglog', content=f_camp_id, head='f_camp_id')
+## log_output('flaglog', content=f_creativeid, head='f_creativeid')
+## log_output('flaglog', content=f_placement_id, head='f_placement_id')
 ## log_output('flaglog', content=f_media_id, head='f_media_id')
+
+# 1152.1151.1165.1103 is one of the most flaged ip, a ip address may has several
+# cookies
+peek = flaged_access.loc[flaged_access.ip ==
+'1152.1151.1165.1103', 'cookie']
+## log_output('flaglog', content=peek.value_counts()
+, head='cookies of a specific flaged ip')
+
+
+# make flaged cookies and ip persistent
 
 # proportion of sources in fake access
 # The time when most access occurs

@@ -12,7 +12,7 @@ test_columns = ['rank', 'dt', 'cookie', 'ip', 'mobile_idfa', 'mobile_imei', 'mob
 ## test_set.columns = test_columns
 
 # filter by ip, cookie, idfa, imei, android_id openudid, mac
-## ip_index = test_set.ip.isin(flaged_access.ip)
+ip_index = test_set.ip.isin(flaged_access.ip)
 cookie_index = test_set.cookie.isin(flaged_access.cookie)
 ## idfa_index = test_set.mobile_idfa.isin(flaged_access.mobile_idfa)
 ## imei_index = test_set.mobile_imei.isin(flaged_access.mobile_imei)
@@ -24,6 +24,6 @@ cookie_index = test_set.cookie.isin(flaged_access.cookie)
 # classify test set
 ## flaged = ip_index | cookie_index | idfa_index | imei_index | android_id_index \
 ##        | openudid_index | mac_index
-flaged = cookie_index 
+flaged = cookie_index | ip_index
 output = test_set.loc[flaged, 'rank']
-output.to_csv("output.csv", index=False, encoding='utf-8')
+output.to_csv("output1.csv", index=False, encoding='utf-8')
