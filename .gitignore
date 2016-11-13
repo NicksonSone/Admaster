@@ -2,3 +2,7 @@ final_ccf_test_dataset.zip
 final_ccf_train_train.zip
 training_set
 test_set
+*.swp
+*.swo
+try/
+pandas

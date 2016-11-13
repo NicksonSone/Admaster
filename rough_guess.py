@@ -11,7 +11,7 @@ test_columns = ['rank', 'dt', 'cookie', 'ip', 'mobile_idfa', 'mobile_imei', 'mob
 'media_id', 'os', 'born_time']
 
 # load test set
-test_chunks = pd.read_csv("test_set", iterator=True, delimiter="	", chunksize=100000)
+test_chunks = pd.read_csv("test_set", iterator=True, delimiter="	", chunksize=100000, low_memory=False)
 test_set = pd.concat([chunk for chunk in test_chunks], ignore_index=True)
 test_set.columns = test_columns
 

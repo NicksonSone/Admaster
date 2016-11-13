@@ -5,6 +5,7 @@ from __future__ import print_function   # log output
 import numpy as np
 import pandas as pd
 
+
 def log_output(filename, content, head=None):
     with open(filename, "a") as log:
         if head != None:
@@ -17,11 +18,12 @@ columns = ['rank', 'dt', 'cookie', 'ip', 'mobile_idfa', 'mobile_imei', 'mobile_a
 'mobile_type','mobile_app_key', 'mobile_app_name', 'placement_id', 'user_agent',
 'media_id', 'os', 'born_time', 'flag']
 
-# initialize data
+# Load training set
 # it is faster to use pandas.read_csv to load large dataset
-chunks = pd.read_csv("training_set", iterator=True, delimiter="	", chunksize=100000)
-training_set = pd.concat([chunk for chunk in chunks], ignore_index=True)
+training_chunks = pd.read_csv("training_set", iterator=True, delimiter="	", chunksize=100000, low_memory=False)
+training_set = pd.concat([chunk for chunk in training_chunks], ignore_index=True)
 training_set.columns = columns
+
 
 # proportion of fake access in training set: 0.49
 ## percentage_fake = fake_access / np.float(line)
@@ -29,8 +31,8 @@ training_set.columns = columns
 
 # check missing values
 training_size = len(training_set.index)
-log_output('log', training_size , head='training size')
 nulls_ratio = (training_size - training_set.count()) / training_size
+## log_output('log', training_size , head='training size')
 ## log_output("log", head="proportion of missing values", content=nulls_ratio)
 
 
@@ -46,46 +48,57 @@ cnt_ios = np.sum(mobile_idfa + mobile_openudid)
 ## log_output('log', cnt_android, head='androids')
 ## log_output('log', cnt_ios, head='ios')
 
-# count mobile_type, user_agents, cookies
-mobile_types = training_set.mobile_type.value_counts()
-user_agents = training_set.user_agents.value_counts()
 
+# Feature distribution
 cookies = training_set.cookie.value_counts()
-## log_output('log', content=mobile_types, head='mobile types')
-## log_output('log', content=user_agent, head='user agents')
+user_agents= training_set.user_agent.value_counts()
+mobile_types = training_set.mobile_type.value_counts()
+mobile_os = training_set.mobile_os.value_counts()
+camp_id = training_set.camp_id.value_counts()
+creativeid = training_set.creativeid.value_counts()
+placement_id = training_set.placement_id.value_counts()
+media_id = training_set.media_id.value_counts()
+
 ## log_output('log', content=cookies, head='cookies')
+## log_output('log', content=user_agents, head='user_agents')
+## log_output('log', content=mobile_types, head='mobile_types')   
+## log_output('log', content=mobile_os, head='mobile_os')
+## log_output('log', content=camp_id, head='camp_id')
+## log_output('log', content=creativeid, head='creativeid')
+## log_output('log', content=placement_id, head='placement_id')
+## log_output('log', content=media_id, head='media_id')
 
 
 # extract all flaged access and watch at the  distribution
 flaged_access = training_set[training_set['flag'] == 1]
 
 f_ip = flaged_access.ip.value_counts()
-
 f_cookies = flaged_access.cookie.value_counts()
 
 f_user_agents= flaged_access.user_agent.value_counts()
-
 f_mobile_types = flaged_access.mobile_type.value_counts()
-
 f_mobile_os = flaged_access.mobile_os.value_counts()
-
 f_camp_id = flaged_access.camp_id.value_counts()
-
 f_creativeid = flaged_access.creativeid.value_counts()
-
 f_placement_id = flaged_access.placement_id.value_counts()
-
 f_media_id = flaged_access.media_id.value_counts()
+f_os = flaged_access.os.value_counts()
+f_mobile_app_key = flaged_access.mobile_app_key.value_counts()
+f_mobile_app_name = flaged_access.mobile_app_name.value_counts()
+
 
 ## log_output('flaglog', content=f_ip, head='f_ip')
 ## log_output('flaglog', content=f_cookies, head='cookies')
-## log_output('flaglog', content=f_user_agents, head='flaged_user_agents')
+## log_output('flaglog', content=f_user_agents, head='f_user_agents')
 ## log_output('flaglog', content=f_mobile_types, head='f_mobile_types')
 ## log_output('flaglog', content=f_mobile_os, head='f_mobile_os')
 ## log_output('flaglog', content=f_camp_id, head='f_camp_id')
 ## log_output('flaglog', content=f_creativeid, head='f_creativeid')
 ## log_output('flaglog', content=f_placement_id, head='f_placement_id')
 ## log_output('flaglog', content=f_media_id, head='f_media_id')
+## log_output('flaglog', content=f_os , head='f_os')
+## log_output('flaglog', content=f_mobile_app_key, head='f_mobile_app_key')
+## log_output('flaglog', content=f_mobile_app_name, head='f_mobile_app_name')
 
 # 1152.1151.1165.1103 is one of the most flaged ip, a ip address may has several
 # cookies
