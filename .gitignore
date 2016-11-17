@@ -5,4 +5,7 @@ test_set
 *.swp
 *.swo
 try/
+data/
+model/
+result/
 pandas

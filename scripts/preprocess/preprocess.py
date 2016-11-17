@@ -6,7 +6,7 @@ import csv as csv
 import numpy as np
 import pandas as pd
 
-train = pd.read_csv('train.csv')
+train = pd.read_csv('./data/training_set.csv')
 
 log_column = ['rank', 'dt', 'cookie', 'ip', 'mobile_idfa', 'mobile_imei', 'mobile_android_id', 
 	      'mobile_openudid', 'mobile_mac', 'timestamps', 'camp_id', 'creativeid', 'mobile_os', 

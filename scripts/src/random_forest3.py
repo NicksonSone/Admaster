@@ -80,7 +80,7 @@ rf = RandomForestClassifier(n_estimators=100)
 rf.fit(cat_df_train, training_set['flag'])
 
 # Save model
-joblib.dump(rf, './randomForestModel_2/randomForest.pkl')
+joblib.dump(rf, './randomForestModel_3/randomForest.pkl')
 # To load a model use: model = joblib.load('filename.pkl') 
 
 # Release training set memory
@@ -112,7 +112,7 @@ print "predicting"
 y = rf.predict(cat_df_test)
 print "saving"
 output = test_set.loc[y == 1, 'rank']
-output.to_csv("output2.csv", index=False, encoding='utf-8')
+output.to_csv("output3.csv", index=False, encoding='utf-8')
 
 
 

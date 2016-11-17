@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function   # log output
+from __future__ import print_function   # ./log/n_log output
 import numpy as np
 import pandas as pd
 
 
 def log_output(filename, content, head=None):
-    with open(filename, "a") as log:
+    with open(filename, "a") as ./log/n_log:
         if head != None:
-            print('\n## ' + head + '\n', file=log)
-        print(content, file=log)
+            print('\n## ' + head + '\n', file=./log/n_log)
+        print(content, file=./log/n_log)
 
 
 columns = ['rank', 'dt', 'cookie', 'ip', 'mobile_idfa', 'mobile_imei', 'mobile_android_id',
@@ -20,7 +20,7 @@ columns = ['rank', 'dt', 'cookie', 'ip', 'mobile_idfa', 'mobile_imei', 'mobile_a
 
 # Load training set
 # it is faster to use pandas.read_csv to load large dataset
-training_chunks = pd.read_csv("training_set", iterator=True, delimiter="	", chunksize=100000, low_memory=False)
+training_chunks = pd.read_csv("./data/training_set", iterator=True, delimiter="	", chunksize=100000, low_memory=False)
 training_set = pd.concat([chunk for chunk in training_chunks], ignore_index=True)
 training_set.columns = columns
 
@@ -32,8 +32,8 @@ training_set.columns = columns
 # check missing values
 training_size = len(training_set.index)
 nulls_ratio = (training_size - training_set.count()) / training_size
-## log_output('log', training_size , head='training size')
-## log_output("log", head="proportion of missing values", content=nulls_ratio)
+## log_output('./log/n_log', training_size , head='training size')
+## log_output("./log/n_log", head="proportion of missing values", content=nulls_ratio)
 
 
 # proportion of different sources in all views
@@ -45,8 +45,8 @@ mobile_idfa = 1 - pd.isnull(training_set['mobile_idfa'])
 mobile_openudid = 1 - pd.isnull(training_set['mobile_openudid'])
 cnt_ios = np.sum(mobile_idfa + mobile_openudid)
 
-## log_output('log', cnt_android, head='androids')
-## log_output('log', cnt_ios, head='ios')
+## log_output('./log/n_log', cnt_android, head='androids')
+## log_output('./log/n_log', cnt_ios, head='ios')
 
 
 # Feature distribution
@@ -59,14 +59,14 @@ creativeid = training_set.creativeid.value_counts()
 placement_id = training_set.placement_id.value_counts()
 media_id = training_set.media_id.value_counts()
 
-## log_output('log', content=cookies, head='cookies')
-## log_output('log', content=user_agents, head='user_agents')
-## log_output('log', content=mobile_types, head='mobile_types')   
-## log_output('log', content=mobile_os, head='mobile_os')
-## log_output('log', content=camp_id, head='camp_id')
-## log_output('log', content=creativeid, head='creativeid')
-## log_output('log', content=placement_id, head='placement_id')
-## log_output('log', content=media_id, head='media_id')
+## log_output('./log/n_log', content=cookies, head='cookies')
+## log_output('./log/n_log', content=user_agents, head='user_agents')
+## log_output('./log/n_log', content=mobile_types, head='mobile_types')   
+## log_output('./log/n_log', content=mobile_os, head='mobile_os')
+## log_output('./log/n_log', content=camp_id, head='camp_id')
+## log_output('./log/n_log', content=creativeid, head='creativeid')
+## log_output('./log/n_log', content=placement_id, head='placement_id')
+## log_output('./log/n_log', content=media_id, head='media_id')
 
 
 # extract all flaged access and watch at the  distribution
@@ -87,24 +87,24 @@ f_mobile_app_key = flaged_access.mobile_app_key.value_counts()
 f_mobile_app_name = flaged_access.mobile_app_name.value_counts()
 
 
-## log_output('flaglog', content=f_ip, head='f_ip')
-## log_output('flaglog', content=f_cookies, head='cookies')
-## log_output('flaglog', content=f_user_agents, head='f_user_agents')
-## log_output('flaglog', content=f_mobile_types, head='f_mobile_types')
-## log_output('flaglog', content=f_mobile_os, head='f_mobile_os')
-## log_output('flaglog', content=f_camp_id, head='f_camp_id')
-## log_output('flaglog', content=f_creativeid, head='f_creativeid')
-## log_output('flaglog', content=f_placement_id, head='f_placement_id')
-## log_output('flaglog', content=f_media_id, head='f_media_id')
-## log_output('flaglog', content=f_os , head='f_os')
-## log_output('flaglog', content=f_mobile_app_key, head='f_mobile_app_key')
-## log_output('flaglog', content=f_mobile_app_name, head='f_mobile_app_name')
+## log_output('./log/n_log', content=f_ip, head='f_ip')
+## log_output('./log/n_log', content=f_cookies, head='cookies')
+## log_output('./log/n_log', content=f_user_agents, head='f_user_agents')
+## log_output('./log/n_log', content=f_mobile_types, head='f_mobile_types')
+## log_output('./log/n_log', content=f_mobile_os, head='f_mobile_os')
+## log_output('./log/n_log', content=f_camp_id, head='f_camp_id')
+## log_output('./log/n_log', content=f_creativeid, head='f_creativeid')
+## log_output('./log/n_log', content=f_placement_id, head='f_placement_id')
+## log_output('./log/n_log', content=f_media_id, head='f_media_id')
+## log_output('./log/n_log', content=f_os , head='f_os')
+## log_output('./log/n_log', content=f_mobile_app_key, head='f_mobile_app_key')
+## log_output('./log/n_log', content=f_mobile_app_name, head='f_mobile_app_name')
 
 # 1152.1151.1165.1103 is one of the most flaged ip, a ip address may has several
 # cookies
 peek = flaged_access.loc[flaged_access.ip ==
 '1152.1151.1165.1103', 'cookie']
-## log_output('flaglog', content=peek.value_counts()
+## log_output('./log/n_log', content=peek.value_counts()
 , head='cookies of a specific flaged ip')
 
 
